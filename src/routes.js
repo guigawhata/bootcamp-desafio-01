@@ -6,7 +6,7 @@ const projects = [];
 
 // MIDDLEWARES
 
-function checkProjectExists(req, res, next) {
+function checkProject(req, res, next) {
   const { id } = req.params;
   const project = projects.find(p => p.id == id);
 
@@ -51,7 +51,7 @@ routes.post('/projects', (req, res) => {
   return res.json(projects);
 });
 
-routes.put('/projects/:id', checkProjectExists, (req, res) => {
+routes.put('/projects/:id', checkProject, (req, res) => {
   const { id } = req.params;
   const { title } = req.body;
 
@@ -62,7 +62,7 @@ routes.put('/projects/:id', checkProjectExists, (req, res) => {
   return res.json(project);
 });
 
-routes.delete('/projects/:id', checkProjectExists, (req, res) => {
+routes.delete('/projects/:id', checkProject, (req, res) => {
   const { id } = req.params;
   const { title } = req.body;
 
@@ -75,7 +75,7 @@ routes.delete('/projects/:id', checkProjectExists, (req, res) => {
 
 // TASKS
 
-routes.post('/projects/:id/tasks', checkProjectExists, (req, res) => {
+routes.post('/projects/:id/tasks', checkProject, (req, res) => {
   const { id } = req.params;
   const { title } = req.body;
 
@@ -86,7 +86,7 @@ routes.post('/projects/:id/tasks', checkProjectExists, (req, res) => {
   return res.json(project);
 });
 
-routes.put('/projects/:id/tasks/:task', checkProjectExists, (req, res) => {
+routes.put('/projects/:id/tasks/:task', checkProject, (req, res) => {
   const { id } = req.params;
   const { task } = req.params;
   const { title } = req.body;
@@ -98,7 +98,7 @@ routes.put('/projects/:id/tasks/:task', checkProjectExists, (req, res) => {
   return res.json(project);
 });
 
-routes.delete('/projects/:id/tasks/:task', checkProjectExists, (req, res) => {
+routes.delete('/projects/:id/tasks/:task', checkProject, (req, res) => {
   const { id } = req.params;
   const { task } = req.params;
 
