@@ -1,0 +1,5 @@
+.editorconfig
+.eslintrc.js
+.prettierrc
+.vscode/
+node_modules/
