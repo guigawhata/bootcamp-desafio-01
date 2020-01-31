@@ -11,7 +11,7 @@ function checkProject(req, res, next) {
   const project = projects.find(p => p.id == id);
 
   if (!project) {
-    return res.status(400).json({ error: 'Project not found' });
+    return res.status(400).json({ error: 'Project not found!' });
   }
 
   return next();
